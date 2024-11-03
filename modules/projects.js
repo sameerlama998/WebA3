@@ -4,52 +4,51 @@ const sectorData = require("../data/sectorData");
 let projects = [];
 
 function initialize() {
-    return new Promise((resolve, reject) => {
-        try {
-            projects = projectData.map(project => {
-                const sector = sectorData.find(sector => sector.id === project.sector_id);
-                return { ...project, sector: sector ? sector.sector_name : 'Unknown Sector' };
-            });
-            resolve();
-        } catch (err) {
-            reject("Failed to initialize projects: " + err);
-        }
+  return new Promise((resolve, reject) => {
+    projectData.forEach(projectElement => {
+      let projectWithSector = { ...projectElement, sector: sectorData.find(sectorElement => sectorElement.id == projectElement.sector_id).sector_name }
+      projects.push(projectWithSector);
     });
+    resolve();
+  });
 }
 
 function getAllProjects() {
-    return new Promise((resolve, reject) => {
-        if (projects.length > 0) {
-            resolve(projects);
-        } else {
-            reject("No projects found");
-        }
-    });
+  return new Promise((resolve, reject) => {
+    resolve(projects);
+  });
 }
 
 function getProjectById(projectId) {
-    return new Promise((resolve, reject) => {
-        const project = projects.find(p => p.id === projectId);
-        if (project) {
-            resolve(project);
-        } else {
-            reject(`Unable to find project with id: ${projectId}`);
-        }
-    });
+
+  return new Promise((resolve, reject) => {
+    let foundProject = projects.find(p => p.id == projectId);
+
+    console.log(foundProject);
+
+    if (foundProject) {
+      resolve(foundProject)
+    } else {
+      reject("Unable to find requested project");
+    }
+
+  });
+
+}
+
+function getProjectsBySector(sector) {
+
+  return new Promise((resolve, reject) => {
+    let foundProjects = projects.filter(p => p.sector.toUpperCase().includes(sector.toUpperCase()));
+
+    if (foundProjects) {
+      resolve(foundProjects)
+    } else {
+      reject("Unable to find requested projects");
+    }
+  });
+
 }
 
 
-function    getProjectsBySector(sector) {
-    return new Promise((resolve, reject) => {
-        const matchingProjects = projects.filter(p => 
-            p.sector.toLowerCase().includes(sector.toLowerCase())
-        );
-        if (matchingProjects.length > 0) {
-            resolve(matchingProjects);
-        } else {
-            reject(`Unable to find projects in sector: ${sector}`);
-        }
-    });
-}
-
-module.exports = { initialize, getAllProjects, getProjectById, getProjectsBySector };
+module.exports = { initialize, getAllProjects, getProjectById, getProjectsBySector }
