@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
-    <title>About - Climate Solutions</title>
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between">
-            <a href="/" class="text-white text-xl">Climate Solutions</a>
-            <div class="space-x-4">
-                <a href="/" class="text-white">Home</a>
-                <a class="active text-blue-400" href="/about">About</a>
-                <div class="dropdown inline-block relative">
-                    <button class="text-white focus:outline-none">
-                        Sector
-                    </button>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-lg">
-                        <li><a href="/solutions/projects?sector=sector1" class="block px-4 py-2 text-gray-800">Sector 1</a></li>
-                        <li><a href="/solutions/projects?sector=sector2" class="block px-4 py-2 text-gray-800">Sector 2</a></li>
-                        <li><a href="/solutions/projects?sector=sector3" class="block px-4 py-2 text-gray-800">Sector 3</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body tabindex="-1">
+  <%- include('partials/navbar') %>
+
+
+  <br />
+
+  <div class="container mx-auto">
 
     <div class="hero bg-base-200 rounded-lg p-6">
-        <div class="hero-content text-center ">
-          <div class="max-w-md">
-            <h1 class="text-5xl font-bold">About</h1>
-  
-            <p class="py-6">All about me and my journey in climate solutions</p>
-        
-            <a href="/" class="btn mt-4 bg-white text-blue-500 px-4 py-2 rounded-lg">Home</a>
-          </div>
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+
+          <p class="py-6">Everything you want to know about me - the designer &amp; developer.</p>
+
         </div>
       </div>
-
-    <!-- Responsive Grid -->
-    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Left Column: Image -->
-        <div class="flex justify-center items-center">
-            <img src="/images/profile1.jpg" alt="A representation of me" class="w-full h-auto rounded-lg shadow-lg">
-        </div>
-
-        <!-- Right Column: Blurb -->
-        <div class="flex items-center">
-            <div>
-                <h2 class="text-2xl font-semibold">About Me</h2>
-                <p class="mt-2">I am passionate about climate solutions and sustainability. Currently, I am taking courses in Environmental Science and exploring different projects that focus on reducing carbon footprints. In my free time, I enjoy hiking, photography, and volunteering for environmental causes.</p>
-            </div>
-        </div>
     </div>
-    
-    <!-- Footer (Optional) -->
-    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
-        <p>&copy; 2024 Climate Solutions. All Rights Reserved.</p>
-    </footer>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg"
+          src="/images/profile-pic.jpg"
+          alt="profile" />
+
+      </div>
+      <div class="prose">
+
+        <p>My name is John Smith and I'm currently studying at Seneca Polytechnic.</p>
+
+        <p>Donec sollicitudin molestie tortor, vel feugiat nulla maximus quis. Suspendisse ut sapien id mauris
+          sollicitudin commodo. Quisque semper, ligula et tincidunt dapibus, nisi ante fermentum lectus, nec molestie
+          sem eros vel neque. Duis sit amet ligula eu ligula consectetur blandit sed at mi. Sed ac odio aliquet,
+          vestibulum justo eget, volutpat eros. Mauris a dictum erat. Vivamus sodales egestas tempus. Duis pulvinar nibh
+          enim, vel gravida nunc egestas id. Duis magna ante, posuere id luctus id, mattis at ipsum. Nullam sit amet
+          magna et dui varius tristique ac id nisl. Pellentesque est dolor, luctus vitae dictum ut, hendrerit lacinia
+          lorem. Nullam a pharetra tortor.</p>
+
+      </div>
+
+    </div>
+
+  </div>
 </body>
+
 </html>

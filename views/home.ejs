@@ -1,104 +1,86 @@
-<!-- /********************************************************************************
-* WEB322 – Assignment 03
-*
-* I declare that this assignment is my own work in accordance with Seneca's
-* Academic Integrity Policy:
-*
-* https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
-*
-* Name: Sameer Bal Tamang Student ID: 159089226 Date: 1 Nov, 2024
-*
-********************************************************************************/ -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/main.css" rel="stylesheet">
- 
-    <title>Climate Solutions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
 </head>
-<body class="theme-bumblebee">
 
-    <!-- Navbar -->
+<body tabindex="-1">
+  <%- include('partials/navbar') %>
+
+  <br />
+
+  <div class="container mx-auto">
+
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Welcome</h1>
+
+          <p class="py-6">Browse our current collection of modern solutions to help fight Climate Change.</p>
       
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-white text-lg">Climate Solutions</a>
-            <div>
-                <a href="/about" class="text-white mx-4">About</a>
-                <div class="relative inline-block text-left">
-                    <div>
-                       
-                        <details class="dropdown">
-                            <summary class="btn m-1">Sector</summary>
-                            <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                              <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-                                  <li><a href="/solutions/projectsBySector/industry">Industry</a></li>
-                              </button>
-                              <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-                                  <li><a href="/solutions/projectsBySector/transportation">Transportation</a></li>
-                              </button>
-                              <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-                                  <li><a href="/solutions/projectsBySector/electricity">Electricity</a></li>
-                              </button>
-                            </ul>
-                          </details>
-
-                    </div>
-                    <div class="absolute z-10 hidden bg-white text-base list-none divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div class="py-1">
-                            <a href="/solutions/projects?sector=industry" class="text-gray-700 block px-4 py-2 text-sm">Industry</a>
-                            <a href="/solutions/projects?sector=renewable" class="text-gray-700 block px-4 py-2 text-sm">Renewable</a>
-                            <a href="/solutions/projects?sector=agriculture" class="text-gray-700 block px-4 py-2 text-sm">Agriculture</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <a href="/solutions/projects" class="btn btn-primary">Get Started Now</a>
         </div>
-    </nav>
+      </div>
+    </div>
 
-    <!-- Main content -->
-    <div class="container mx-auto mt-10">
-       
+    <br />
 
-        <div class="hero bg-base-200 rounded-lg p-6">
-            <div class="hero-content text-center ">
-              <div class="max-w-md">
-                <h1 class="text-5xl font-bold">Explore Our Projects</h1>
-      
-                <p class="py-6">Discover innovative solutions for climate challenges.</p>
-            
-                <a href="/solutions/projects" class="btn mt-4 bg-white text-blue-500 px-4 py-2 rounded-lg">View Projects</a>
-              </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div>
+
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://drawdown.org/sites/default/files/solutions/solution_farmlandrestoration01.jpg" alt="Abandoned Farmland Restoration" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Abandoned Farmland Restoration</h2>
+            <p>Restoration can bring degraded farmland back into productivity and sequester carbon in the process.</p>
+            <div class="card-actions justify-end py-6">
+              <a href="/solutions/projects/1" class="btn btn-primary">More Information</a>
             </div>
           </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8"> <!-- Increase gap from 4 to 8 -->
-            <div class="card bg-white shadow-md rounded-lg p-4">
-                <img src="/images/project1.jpg" alt="Abandoned Farmland Restoration" class="w-full h-48 object-cover rounded-t-lg">
-                <h2 class="text-xl font-semibold mt-2">Abandoned Farmland Restoration</h2>
-                <p class="mt-1">Restoration can bring degraded farmland back into productivity and sequester carbon in the process.</p>
-                <a href="/solutions/projects/1" class="btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg">View Details</a>
-            </div>
-            <div class="card bg-white shadow-md rounded-lg p-4">
-                <img src="images/project2.jpg" alt="Alternative Cements" class="w-full h-48 object-cover rounded-t-lg">
-                <h2 class="text-xl font-semibold mt-2">Alternative Cements</h2> <!-- Title added -->
-                <p class="mt-1">Conventional cement production is a significant source of carbon dioxide. Reformulation can reduce emissions by millions of metric tons each year.</p>
-                <a href="/solutions/projects/2" class="btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg">View Details</a>
-            </div>
-            <div class="card bg-white shadow-md rounded-lg p-4">
-                <img src="images/project3.jpg" alt="Bicycle Infrastructure" class="w-full h-48 object-cover rounded-t-lg">
-                <h2 class="text-xl font-semibold mt-2">Bicycle Infrastructure</h2>
-                <p class="mt-1">Infrastructure is essential for supporting safe and abundant bicycle use, which curbs emissions by reducing the need for fossil-fuel-dependent transportation.</p>
-                <a href="/solutions/projects/3" class="btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg">View Details</a>
-            </div>
         </div>
-        
-    </div>
+      </div>
+      <div>
 
-    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
-        &copy; 2023 Climate Solutions. All Rights Reserved.
-    </footer>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://drawdown.org/sites/default/files/solutions2020/solution_alternativecement02.jpg" alt="Alternative Cement" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Alternative Cement</h2>
+            <p>Conventional cement production is a significant source of carbon dioxide. Reformulation can reduce emissions by millions of metric tons each year.</p>
+            <div class="card-actions justify-end py-6">
+              <a href="/solutions/projects/2" class="btn btn-primary">More Information</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://drawdown.org/sites/default/files/solutions2020/solution_bicycle_infrastructure.jpg" alt="Bicycle Infrastructure" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Bicycle Infrastructure</h2>
+            <p>Infrastructure is essential for supporting safe and abundant bicycle use, which curbs emissions by reducing the need for fossil-fuel-dependent transportation.</p>
+            <div class="card-actions justify-end py-6">
+              <a href="/solutions/projects/3" class="btn btn-primary">More Information</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 </body>
-</html> -->
+
+</html>
