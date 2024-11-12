@@ -10,16 +10,14 @@
 </head>
 
 <body tabindex="-1">
-  <%- include('partials/navbar') %>
 
+  <%- include('partials/navbar', {page: '/about'}) %>
 
-  <br />
-
-  <div class="container mx-auto">
+  <div class="container mx-auto p-4">
 
     <div class="hero bg-base-200 rounded-lg p-6">
       <div class="hero-content text-center ">
-        <div class="max-w-md">
+        <div class="max-w-lg">
           <h1 class="text-5xl font-bold">About</h1>
 
           <p class="py-6">Everything you want to know about me - the designer &amp; developer.</p>
@@ -33,7 +31,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <img class="w-full rounded-lg"
-          src="/images/profile-pic.jpg"
+          src="https://educationsnapshots.com/wp-content/uploads/sites/4/2022/01/seneca-college-newnham-campus-food-hall-3-700x467-compact.jpg"
           alt="profile" />
 
       </div>

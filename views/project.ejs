@@ -6,24 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climate Solutions</title>
   <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", async ()=>{
+
+        let res = await fetch("https://dummyjson.com/quotes/random");
+        let data = await res.json();
+
+        document.getElementById("quote").innerHTML = `"${data.quote}"<br />- <em>${data.author}</em>`;
+    });
+  </script>
 
 </head>
 
 <body tabindex="-1">
-    <%- include('partials/navbar', { page: "" }) %>
 
+  <%- include('partials/navbar', {page: ''}) %>
 
-
-  <br />
-
-  <div class="container mx-auto">
+  <div class="container mx-auto p-4">
 
     <div class="hero bg-base-200 rounded-lg p-6">
       <div class="hero-content text-center ">
-        <div class="max-w-md">
+        <div class="max-w-lg">
           <h1 class="text-5xl font-bold"><%= project.title %></h1>
 
-          <p class="py-6">Below, you will find detailed information about the project: <%= project.title %>.</p>
+          <p class="py-6">Below, you will find detailed information about the project: <%= project.title %></p>
 
         </div>
       </div>
@@ -33,46 +39,24 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
-        <img class="w-full rounded-lg"
-          src="/images/profile-pic.jpg"
-          alt="profile" />
-
+          <img class="w-full rounded-lg"
+            src="<%= project.feature_img_url %>"
+            alt=" Set Image" />
       </div>
       <div class="prose">
 
-         <p><%= project.intro_short %></p>
-         <br>
-        
-         <span class="font-bold">Impact: </span>
-         <p><%= project.impact %></p>
-         <br>
-         <span class="font-bold">More Information: </span>
-         <p><a href="<%= project.original_source_url %>"><%= project.original_source_url %></a></p>
+       <p>
+        <%= project.intro_short %> <br /><br />
+        <span class="font-bold">Impact: </span><br /><br /> <%= project.impact %> <br /><br />
 
-         <div id="quote-container">
-            <p id="quote"></p>
-            <p id="author"></p>
-        </div>
-            
-          <script>
-    
-          document.addEventListener("DOMContentLoaded", () => {
-            fetch('https://dummyjson.com/quotes/random')
-              .then(response => response.json())
-              .then(data => {
-                document.getElementById('quote').textContent = `"${data.quote}"`;
-                document.getElementById('author').textContent = `- ${data.author}`;
-              })
-              .catch(error => {
-                console.error('Error fetching quote:', error);
-                document.getElementById('quote').textContent = 'Failed to load quote';
-              });
-          });
-          </script>
-            <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); 
-            return false;">RETURN</a>
+        <span class="font-bold">More Information: </span> <a href="<%= project.original_source_url %>" target="_blank"><%= project.original_source_url %></a><br /><br />
 
-        </div>
+        <span id="quote"></span>
+        <br /><br />
+        <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a><br /><br />
+       </p>
+
+      </div>
 
     </div>
 
