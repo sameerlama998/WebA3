@@ -1,14 +1,6 @@
 require('dotenv').config();
 
 
-let sequelize = new Sequelize({
-  database: process.env.DB_NAME, // Database name from the environment variable
-  username: process.env.DB_USER, // Username from the environment variable
-  password: process.env.DB_PASSWORD, // Password from the environment variable
-  host: process.env.DB_HOST, // Host from the environment variable
-  dialect: 'postgres', // Dialect is set to PostgreSQL
-  logging: false // Disable SQL logging (optional)
-});
 const projectData = require("../data/projectData");
 const sectorData = require("../data/sectorData");
 
