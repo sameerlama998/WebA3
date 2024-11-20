@@ -48,7 +48,8 @@
 
         <br>
 
-        <form action="/solutions/editProject" method="post">
+        <!-- Edit Project Form -->
+        <form action="/solutions/editProject/<%= project.id %>" method="post">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-0">
 
@@ -56,7 +57,7 @@
                     <label for="title" class="block font-medium my-2">Title</label>
                     <input value="<%= project.title %>" type="text" id="title" name="title" required class="w-full rounded-md px-3 py-2">
                 </div>
-                
+
                 <div class="mb-6">
                     <label for="feature_img_url" class="block font-medium my-2">Feature Image (URL)</label>
                     <input value="<%= project.feature_img_url %>" type="url" id="feature_img_url" name="feature_img_url" required class="w-full rounded-md px-3 py-2">
@@ -65,11 +66,11 @@
                 <div class="mb-6">
                     <label for="sector_id" class="block font-medium my-2">Sector</label>
                     <select id="sector_id" name="sector_id" required class="w-full rounded-md px-3 py-2">
-                        <% sectors.forEach(function(sector) { %>
-                            <option value="<%= sector.id %>" <%= project.sector_id == sector.id ? 'selected' : '' %>>
-                                <%= sector.name %>
+                        <% sectors.forEach(sector=>{ %>
+                            <option <%= (project.sector_id == sector.id) ? "selected" : "" %> value="<%= sector.id %>">
+                            <%= sector.sector_name %>
                             </option>
-                        <% }); %>
+                           <% }) %>
                     </select>
                 </div>
 

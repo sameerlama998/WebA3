@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Climate Solutions</title>
@@ -7,6 +8,7 @@
 
 <body tabindex="-1">
 
+    <!-- Include the navbar partial and set the page to '/solutions/addProject' -->
     <%- include('partials/navbar', { page: '/solutions/addProject' }) %>
     
     <div class="container mx-auto p-4">
@@ -15,88 +17,77 @@
             <div class="hero-content text-center ">
                 <div class="max-w-md">
                     <h1 class="text-5xl font-bold">Add Project</h1>
-
                     <p class="py-6">Use the below form to add a new Project to the collection</p>
-
                 </div>
             </div>
         </div>
 
         <br>
 
+        <!-- Form for adding a project -->
         <form action="/solutions/addProject" method="post">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-0">
 
+                <!-- Title Input -->
                 <div class="mb-6">
                     <label for="title" class="block font-medium my-2">Title</label>
-                    <input type="text" id="title" name="title" required="" class="w-full  rounded-md px-3 py-2 ">
-                </div>
-                <div class="mb-6">
-                    <label for="feature_img_url" class="block font-medium my-2">Feature Image (URL)</label>
-                    <input type="url" id="feature_img_url" name="feature_img_url" required="" class="w-full   rounded-md px-3 py-2 ">
+                    <input type="text" id="title" name="title" required="" class="w-full rounded-md px-3 py-2">
                 </div>
 
+                <!-- Feature Image URL Input -->
+                <div class="mb-6">
+                    <label for="feature_img_url" class="block font-medium my-2">Feature Image (URL)</label>
+                    <input type="url" id="feature_img_url" name="feature_img_url" required="" class="w-full rounded-md px-3 py-2">
+                </div>
+
+                <!-- Sector Select -->
                 <div class="mb-6">
                     <label for="sector_id" class="block font-medium my-2">Sector</label>
-                    <select id="sector_id" name="sector_id" required="" class="w-full rounded-md px-3 py-2 ">
-                        
-                            <option value="1">
-                                Land Sinks
+                    <select id="sector_id" name="sector_id" required="" class="w-full rounded-md px-3 py-2">
+                        <!-- Loop through sectors array and render options dynamically -->
+                        <% sectors.forEach(sector => { %>
+                            <option value="<%= sector.id %>">
+                                <%= sector.sector_name %>
                             </option>
-                            
-                            <option value="2">
-                                Industry
-                            </option>
-                            
-                            <option value="3">
-                                Transportation
-                            </option>
-                            
-                            <option value="4">
-                                Electricity
-                            </option>
-                            
-                            <option value="5">
-                                Food, Agriculture, and Land Use
-                            </option>
-                            
+                        <% }) %>
                     </select>
                 </div>
 
-
+                <!-- Intro Short Textarea -->
                 <div class="mb-6">
                     <label for="intro_short" class="block font-medium my-2">Intro</label>
-
                     <textarea id="intro_short" name="intro_short" required="" class="w-full rounded-md px-3 py-2 h-40"></textarea>
-
                 </div>
 
+                <!-- Short Summary Textarea -->
                 <div class="mb-6">
                     <label for="summary_short" class="block font-medium my-2">Short Summary</label>
-                    <textarea id="summary_short" name="summary_short" required="" class="w-full rounded-md px-3 py-2  h-40"></textarea>
+                    <textarea id="summary_short" name="summary_short" required="" class="w-full rounded-md px-3 py-2 h-40"></textarea>
                 </div>
 
+                <!-- Impact Textarea -->
                 <div class="mb-6">
                     <label for="impact" class="block font-medium my-2">Impact</label>
-                    <textarea id="impact" name="impact" required="" class="w-full rounded-md px-3 py-2  h-40"></textarea>
+                    <textarea id="impact" name="impact" required="" class="w-full rounded-md px-3 py-2 h-40"></textarea>
                 </div>
 
+                <!-- Original Source URL Input -->
                 <div class="mb-6">
-                    <label for="original_source_url" class="block font-medium my-2">Original Source
-                        (URL)</label>
-                    <input type="url" id="original_source_url" name="original_source_url" required="" class="w-full rounded-md px-3 py-2 ">
+                    <label for="original_source_url" class="block font-medium my-2">Original Source (URL)</label>
+                    <input type="url" id="original_source_url" name="original_source_url" required="" class="w-full rounded-md px-3 py-2">
                 </div>
 
             </div>
 
+            <!-- Submit Button -->
             <div class="mt-6">
-                <button type="submit" class="btn btn-primary w-full btn-sm ">Add Project</button>
+                <button type="submit" class="btn btn-primary w-full btn-sm">Add Project</button>
             </div>
 
         </form>
 
     </div>
 
-
-</body></html>
+</body>
+</html>
